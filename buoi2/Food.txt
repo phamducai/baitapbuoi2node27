@@ -70,10 +70,12 @@ CREATE TABLE rate_res(
     date_rate DATETIME 
 );
 # Tìm 5 người đã like nhà hàng nhiều nhất.
-SELECT *
+SELECT user_id, count(*) as duplicates
 FROM like_res
-ORDER BY user_id DESC
+GROUP BY user_id
+ORDER BY duplicates DESC
 LIMIT 5;
+
 # Tìm 2 nhà hàng có lượt like nhiều nhất.
 SELECT *
 FROM rate_res
